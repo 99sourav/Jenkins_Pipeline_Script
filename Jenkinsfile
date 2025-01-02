@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = "C:\Users\addre\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9"    // Adjust this path to your Maven installation
-        TOMCAT_HOME = "C:\apache-tomcat-9.0.98"    // Adjust this path to your Tomcat installation
+        MAVEN_HOME = "C:/Users/addre/Downloads/apache-maven-3.9.9-bin/apache-maven-3.9.9"    // Adjust this path to your Maven installation
+        TOMCAT_HOME = "C:/apache-tomcat-9.0.98"    // Adjust this path to your Tomcat installation
     }
 
     stages {
