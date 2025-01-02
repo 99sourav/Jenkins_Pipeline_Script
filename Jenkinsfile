@@ -29,8 +29,8 @@ pipeline {
                     bat "\"${env.TOMCAT_HOME}\\bin\\shutdown.bat\""
 
                     // Remove old WAR and application directory
-                    bat "rmdir /S /Q \"${env.TOMCAT_HOME}\\webapps\\springwebapp\""
-                    bat "del /Q \"${env.TOMCAT_HOME}\\webapps\\springwebapp.war\""
+//                     bat "rmdir /S /Q \"${env.TOMCAT_HOME}\\webapps\\springwebapp\""
+//                     bat "del /Q \"${env.TOMCAT_HOME}\\webapps\\springwebapp.war\""
 
                     // Copy the new WAR file
                     bat "copy target\\springwebapp.war \"${env.TOMCAT_HOME}\\webapps\\\""
