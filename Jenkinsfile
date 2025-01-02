@@ -26,7 +26,7 @@ pipeline {
                 echo 'Deploying to Apache Tomcat...'
                 script {
                     // Stop Tomcat server
-                    bat "${TOMCAT_HOME}/bin/shutdown.sh"
+                    bat "${TOMCAT_HOME}/bin/shutdown.bat"
 
                     // Remove old WAR and application directory
                     bat "rm -rf ${TOMCAT_HOME}/webapps/springwebapp"
@@ -36,7 +36,7 @@ pipeline {
                     bat "cp target/springwebapp.war ${TOMCAT_HOME}/webapps/"
 
                     // Start Tomcat server
-                    bat "${TOMCAT_HOME}/bin/startup.sh"
+                    bat "${TOMCAT_HOME}/bin/startup.bat"
                 }
             }
         }
