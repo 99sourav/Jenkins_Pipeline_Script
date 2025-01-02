@@ -10,14 +10,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out the code from GitHub...'
-                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+                git branch: 'master', url: 'https://github.com/99sourav/sample_java_project.git'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the Maven project...'
-                sh "${MAVEN_HOME}/bin/mvn clean package"
+                bat "${MAVEN_HOME}/bin/mvn clean package"
             }
         }
 
@@ -26,17 +26,17 @@ pipeline {
                 echo 'Deploying to Apache Tomcat...'
                 script {
                     // Stop Tomcat server
-                    sh "${TOMCAT_HOME}/bin/shutdown.sh"
+                    bat "${TOMCAT_HOME}/bin/shutdown.sh"
 
                     // Remove old WAR and application directory
-                    sh "rm -rf ${TOMCAT_HOME}/webapps/your-app-name"
-                    sh "rm -f ${TOMCAT_HOME}/webapps/your-app-name.war"
+                    bat "rm -rf ${TOMCAT_HOME}/webapps/springwebapp"
+                    bat "rm -f ${TOMCAT_HOME}/webapps/springwebapp.war"
 
                     // Copy the new WAR file
-                    sh "cp target/your-app-name.war ${TOMCAT_HOME}/webapps/"
+                    bat "cp target/springwebapp.war ${TOMCAT_HOME}/webapps/"
 
                     // Start Tomcat server
-                    sh "${TOMCAT_HOME}/bin/startup.sh"
+                    bat "${TOMCAT_HOME}/bin/startup.sh"
                 }
             }
         }
